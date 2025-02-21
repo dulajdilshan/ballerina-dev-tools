@@ -1191,6 +1191,8 @@ class CodeAnalyzer extends NodeVisitor {
 
         if (dataMappings.containsKey(functionName)) {
             startNode(NodeKind.DATA_MAPPER_CALL, functionCallExpressionNode.parent());
+        } else if (isNPFunction(functionSymbol)) {
+            startNode(NodeKind.NP_FUNCTION_CALL, functionCallExpressionNode.parent());
         } else {
             startNode(NodeKind.FUNCTION_CALL, functionCallExpressionNode.parent());
         }
@@ -1700,6 +1702,11 @@ class CodeAnalyzer extends NodeVisitor {
                 .lineRange(comment.position)
                 .sourceCode(comment.comment());
         endNode();
+    }
+
+    private boolean isNPFunction(FunctionSymbol functionSymbol) {
+        ModuleInfo npModule = new ModuleInfo("ballerina", "naturalprogramming", "", "");
+        return CommonUtils.isWithinPackage(functionSymbol, npModule);
     }
 
     public List<FlowNode> getFlowNodes() {
