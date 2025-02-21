@@ -74,6 +74,31 @@
           "enabled": true
         }
       ]
+    },
+    {
+      "metadata": {
+        "label": "AI Prompt as a Function"
+      },
+      "items": [
+        {
+          "metadata": {
+            "label": "AI Call",
+            "description": "AI Call\n```ballerina\nnp:call(\"prompt message\", id = 845315)\n```\n\n",
+            "icon": "https://gist.github.com/user-attachments/assets/903c5c16-7d67-4af8-8113-ce7c59ccdaab"
+          },
+          "codedata": {
+            "node": "FUNCTION_CALL",
+            "module": "naturalprogramming",
+            "symbol": "call",
+            "org": "ballerina",
+            "importStmt": "import ballerina/naturalprogramming",
+            "version": "0.3.0",
+            "flags": 1,
+            "rev": "10.25.1"
+          },
+          "enabled": true
+        }
+      ]
     }
   ]
 }
